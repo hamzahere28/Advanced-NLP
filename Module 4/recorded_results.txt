@@ -1,0 +1,116 @@
+Notebook cell 4
+2026-10-25 08:29:13.709444: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1792916953.960496      57 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1792916954.031803      57 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1792916954.642731      57 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792916954.642778      57 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792916954.642782      57 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792916954.642785      57 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+
+Notebook cell 4
+TensorFlow version: 2.19.0
+
+
+Notebook cell 7
+PositionalEncoding, EncoderLayer, DecoderLayer defined.
+
+
+Notebook cell 11
+2026-10-25 08:32:06.248335: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+
+
+Notebook cell 11
+<Figure size 1400x400 with 3 Axes>
+
+Notebook cell 11
+Padding mask shape:    (1, 1, 5)
+Look-ahead mask shape: (5, 5)
+Combined mask shape:   (1, 5, 5)
+
+
+Notebook cell 14
+Encoder input shape:  (2, 40)
+Encoder output shape: (2, 40, 32)
+
+
+Notebook cell 17
+Decoder target shape:    (2, 40)
+Decoder enc_output shape:(2, 40, 32)
+Decoder output shape:    (2, 40, 32)
+
+
+Notebook cell 23
+[1mModel: "Transformer"[0m
+
+
+Notebook cell 23
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃[1m [0m[1mLayer (type)                   [0m[1m [0m┃[1m [0m[1mOutput Shape          [0m[1m [0m┃[1m [0m[1m      Param #[0m[1m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ encoder_1 ([38;5;33mEncoder[0m)             │ ?                      │       [38;5;34m136,544[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ decoder_1 ([38;5;33mDecoder[0m)             │ ?                      │       [38;5;34m140,832[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ output_projection ([38;5;33mDense[0m)       │ ([38;5;34m2[0m, [38;5;34m41[0m, [38;5;34m4000[0m)          │       [38;5;34m132,000[0m │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+
+
+Notebook cell 23
+[1m Total params: [0m[38;5;34m409,376[0m (1.56 MB)
+
+
+Notebook cell 23
+[1m Trainable params: [0m[38;5;34m409,376[0m (1.56 MB)
+
+
+Notebook cell 23
+[1m Non-trainable params: [0m[38;5;34m0[0m (0.00 B)
+
+
+Notebook cell 23
+
+Encoder input shape:  (2, 40)
+Decoder input shape:  (2, 41)
+Output logits shape:  (2, 41, 4000)
+
+
+Notebook cell 26
+Loading TED Ultimate Dataset from Kaggle Inputs...
+Loaded 500 aligned pairs.
+Example PT (truncated): Shah Rukh Khan: "Uma garota deveria ser vista, não ouvida." "Cale-se" ou "Chup", em hindu. Essas palavras servem para silenciar as garotas desde a inf...
+Example EN (truncated): Shah Rukh Khan: "A girl should be seen, not heard." "Be quiet," or, "chup." These words are often used to silence girls right from childhood, well int...
+
+
+Notebook cell 28
+PT tokens shape: (500, 40)
+EN tokens shape: (500, 42)
+
+PT vocabulary size: 4000
+EN vocabulary size: 4000
+
+
+Notebook cell 30
+Number of batches: 32
+Batch shapes (inp, tar): (16, 40), (16, 42)
+
+
+Notebook cell 31
+Training Transformer — 500 pairs, 5 epochs (illustration only)
+
+Epoch 1/5  loss: 7.7831
+Epoch 2/5  loss: 6.7052
+Epoch 3/5  loss: 6.0364
+Epoch 4/5  loss: 5.7913
+Epoch 5/5  loss: 5.7127
+
+
+Notebook cell 33
+<Figure size 1000x600 with 1 Axes>
+
+Notebook cell 33
+
+Initial loss: 7.7831
+Final loss:   5.7127
+Decreasing loss confirms the full Transformer pipeline is wired correctly.

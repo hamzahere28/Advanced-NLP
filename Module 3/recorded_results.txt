@@ -1,0 +1,160 @@
+Notebook cell 7
+2026-10-25 08:26:22.669607: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1792916782.852339      16 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1792916782.906310      16 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1792916783.334961      16 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792916783.335002      16 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792916783.335004      16 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792916783.335006      16 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+
+Notebook cell 7
+=== EncoderLayer Model Summary ===
+
+
+Notebook cell 7
+2026-10-25 08:26:49.492308: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+
+
+Notebook cell 7
+[1mModel: "EncoderLayer_Model"[0m
+
+
+Notebook cell 7
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃[1m [0m[1mLayer (type)                   [0m[1m [0m┃[1m [0m[1mOutput Shape          [0m[1m [0m┃[1m [0m[1m      Param #[0m[1m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ encoder_input ([38;5;33mInputLayer[0m)      │ ([38;5;45mNone[0m, [38;5;34m60[0m, [38;5;34m32[0m)         │             [38;5;34m0[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ encoder_layer ([38;5;33mEncoderLayer[0m)    │ ([38;5;45mNone[0m, [38;5;34m60[0m, [38;5;34m32[0m)         │         [38;5;34m8,544[0m │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+
+
+Notebook cell 7
+[1m Total params: [0m[38;5;34m8,544[0m (33.38 KB)
+
+
+Notebook cell 7
+[1m Trainable params: [0m[38;5;34m8,544[0m (33.38 KB)
+
+
+Notebook cell 7
+[1m Non-trainable params: [0m[38;5;34m0[0m (0.00 B)
+
+
+Notebook cell 13
+=== DecoderLayer Model Summary ===
+
+
+Notebook cell 13
+[1mModel: "DecoderLayer_Model"[0m
+
+
+Notebook cell 13
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃[1m [0m[1mLayer (type)       [0m[1m [0m┃[1m [0m[1mOutput Shape     [0m[1m [0m┃[1m [0m[1m   Param #[0m[1m [0m┃[1m [0m[1mConnected to     [0m[1m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ target_input        │ ([38;5;45mNone[0m, [38;5;34m60[0m, [38;5;34m32[0m)    │          [38;5;34m0[0m │ -                 │
+│ ([38;5;33mInputLayer[0m)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ encoder_output      │ ([38;5;45mNone[0m, [38;5;34m60[0m, [38;5;34m32[0m)    │          [38;5;34m0[0m │ -                 │
+│ ([38;5;33mInputLayer[0m)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ decoder_layer       │ ([38;5;45mNone[0m, [38;5;34m60[0m, [38;5;34m32[0m)    │     [38;5;34m12,832[0m │ target_input[[38;5;34m0[0m][[38;5;34m…[0m │
+│ ([38;5;33mDecoderLayer[0m)      │                   │            │ encoder_output[[38;5;34m0[0m… │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+
+
+Notebook cell 13
+[1m Total params: [0m[38;5;34m12,832[0m (50.12 KB)
+
+
+Notebook cell 13
+[1m Trainable params: [0m[38;5;34m12,832[0m (50.12 KB)
+
+
+Notebook cell 13
+[1m Non-trainable params: [0m[38;5;34m0[0m (0.00 B)
+
+
+Notebook cell 16
+EncoderLayer  input  shape: (2, 60, 32)
+EncoderLayer  output shape: (2, 60, 32)
+Shape preserved? True
+
+DecoderLayer  target shape: (2, 60, 32)
+DecoderLayer  enc_out shape: (2, 60, 32)
+DecoderLayer  output shape: (2, 60, 32)
+
+
+Notebook cell 19
+Full dataset    : 10662
+Vocabulary size : 5000
+X shape         : (200, 60)
+Y shape         : (200,)
+
+
+Notebook cell 20
+=== Tiny Encoder-Only Classifier ===
+
+
+Notebook cell 20
+[1mModel: "EncoderOnly_Classifier"[0m
+
+
+Notebook cell 20
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃[1m [0m[1mLayer (type)                   [0m[1m [0m┃[1m [0m[1mOutput Shape          [0m[1m [0m┃[1m [0m[1m      Param #[0m[1m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ token_ids ([38;5;33mInputLayer[0m)          │ ([38;5;45mNone[0m, [38;5;34m60[0m)             │             [38;5;34m0[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ embedding ([38;5;33mEmbedding[0m)           │ ([38;5;45mNone[0m, [38;5;34m60[0m, [38;5;34m32[0m)         │       [38;5;34m160,000[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ positional_encoding             │ ([38;5;45mNone[0m, [38;5;34m60[0m, [38;5;34m32[0m)         │             [38;5;34m0[0m │
+│ ([38;5;33mPositionalEncoding[0m)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ encoder_layer ([38;5;33mEncoderLayer[0m)    │ ([38;5;45mNone[0m, [38;5;34m60[0m, [38;5;34m32[0m)         │         [38;5;34m8,544[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ sequence_avg                    │ ([38;5;45mNone[0m, [38;5;34m32[0m)             │             [38;5;34m0[0m │
+│ ([38;5;33mGlobalAveragePooling1D[0m)        │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ sentiment_output ([38;5;33mDense[0m)        │ ([38;5;45mNone[0m, [38;5;34m1[0m)              │            [38;5;34m33[0m │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+
+
+Notebook cell 20
+[1m Total params: [0m[38;5;34m168,577[0m (658.50 KB)
+
+
+Notebook cell 20
+[1m Trainable params: [0m[38;5;34m168,577[0m (658.50 KB)
+
+
+Notebook cell 20
+[1m Non-trainable params: [0m[38;5;34m0[0m (0.00 B)
+
+
+Notebook cell 20
+
+Starting tiny training run (200 samples, 5 epochs)...
+Epoch 1/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m3s[0m 43ms/step - accuracy: 0.4868 - loss: 0.8030 - val_accuracy: 0.5750 - val_loss: 0.6922
+Epoch 2/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 16ms/step - accuracy: 0.5595 - loss: 0.6770 - val_accuracy: 0.4250 - val_loss: 0.7252
+Epoch 3/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 15ms/step - accuracy: 0.5105 - loss: 0.6991 - val_accuracy: 0.5750 - val_loss: 0.6824
+Epoch 4/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 13ms/step - accuracy: 0.5449 - loss: 0.6848 - val_accuracy: 0.5750 - val_loss: 0.6829
+Epoch 5/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 14ms/step - accuracy: 0.5998 - loss: 0.6721 - val_accuracy: 0.4250 - val_loss: 0.7071
+
+
+Notebook cell 20
+<Figure size 1400x500 with 2 Axes>
+
+Notebook cell 20
+
+Final training loss:     0.6791
+Final training accuracy: 0.5813
+Key observation: loss decreased — the EncoderLayer trains correctly!

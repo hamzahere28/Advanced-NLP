@@ -1,0 +1,198 @@
+Notebook cell 6
+2026-10-25 08:45:01.699605: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1792917901.970383      58 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1792917902.047799      58 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1792917902.817238      58 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792917902.817280      58 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792917902.817283      58 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792917902.817286      58 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+
+Notebook cell 6
+TensorFlow version: 2.19.0
+GPU available: False
+
+
+Notebook cell 6
+2026-10-25 08:45:34.859658: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+
+
+Notebook cell 9
+All Transformer components defined.
+
+
+Notebook cell 11
+Loading TED Ultimate Dataset from Kaggle Inputs...
+Loaded 500 matched transcript pairs.
+Example PT (truncated): Shah Rukh Khan: "Uma garota deveria ser vista, não ouvida." "Cale-se" ou "Chup", em hindu. Essas palavras servem para silenciar as garotas desde a inf...
+Example EN (truncated): Shah Rukh Khan: "A girl should be seen, not heard." "Be quiet," or, "chup." These words are often used to silence girls right from childhood, well int...
+
+
+Notebook cell 13
+PT tokens shape: (500, 40)
+EN tokens shape: (500, 42)
+PT vocab size: 8000
+EN vocab size: 8000
+[START] token ID: 131
+[END] token ID: 130
+
+
+Notebook cell 17
+[1mModel: "TinyTransformer"[0m
+
+
+Notebook cell 17
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃[1m [0m[1mLayer (type)                   [0m[1m [0m┃[1m [0m[1mOutput Shape          [0m[1m [0m┃[1m [0m[1m      Param #[0m[1m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ encoder ([38;5;33mEncoder[0m)               │ ?                      │       [38;5;34m264,544[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ decoder ([38;5;33mDecoder[0m)               │ ?                      │       [38;5;34m268,832[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ output_projection ([38;5;33mDense[0m)       │ ([38;5;34m1[0m, [38;5;34m41[0m, [38;5;34m8000[0m)          │       [38;5;34m264,000[0m │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+
+
+Notebook cell 17
+[1m Total params: [0m[38;5;34m797,376[0m (3.04 MB)
+
+
+Notebook cell 17
+[1m Trainable params: [0m[38;5;34m797,376[0m (3.04 MB)
+
+
+Notebook cell 17
+[1m Non-trainable params: [0m[38;5;34m0[0m (0.00 B)
+
+
+Notebook cell 19
+Tiny model training (500 samples, 30 epochs)
+
+  [Tiny] Epoch 1/30  loss: 8.8815
+  [Tiny] Epoch 2/30  loss: 8.5671
+  [Tiny] Epoch 3/30  loss: 8.2372
+  [Tiny] Epoch 4/30  loss: 7.9113
+  [Tiny] Epoch 5/30  loss: 7.6032
+  [Tiny] Epoch 6/30  loss: 7.3184
+  [Tiny] Epoch 7/30  loss: 7.0654
+  [Tiny] Epoch 8/30  loss: 6.8439
+  [Tiny] Epoch 9/30  loss: 6.6626
+  [Tiny] Epoch 10/30  loss: 6.5119
+  [Tiny] Epoch 11/30  loss: 6.3927
+  [Tiny] Epoch 12/30  loss: 6.3011
+  [Tiny] Epoch 13/30  loss: 6.2339
+  [Tiny] Epoch 14/30  loss: 6.1852
+  [Tiny] Epoch 15/30  loss: 6.1460
+  [Tiny] Epoch 16/30  loss: 6.1138
+  [Tiny] Epoch 17/30  loss: 6.0790
+  [Tiny] Epoch 18/30  loss: 6.0446
+  [Tiny] Epoch 19/30  loss: 6.0066
+  [Tiny] Epoch 20/30  loss: 5.9630
+  [Tiny] Epoch 21/30  loss: 5.9181
+  [Tiny] Epoch 22/30  loss: 5.8712
+  [Tiny] Epoch 23/30  loss: 5.8233
+  [Tiny] Epoch 24/30  loss: 5.7696
+  [Tiny] Epoch 25/30  loss: 5.7209
+  [Tiny] Epoch 26/30  loss: 5.6650
+  [Tiny] Epoch 27/30  loss: 5.6083
+  [Tiny] Epoch 28/30  loss: 5.5561
+  [Tiny] Epoch 29/30  loss: 5.4916
+  [Tiny] Epoch 30/30  loss: 5.4352
+
+
+Notebook cell 19
+<Figure size 1000x600 with 1 Axes>
+
+Notebook cell 19
+Final loss: 5.4352
+
+
+Notebook cell 21
+[1mModel: "FullTransformer"[0m
+
+
+Notebook cell 21
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃[1m [0m[1mLayer (type)                   [0m[1m [0m┃[1m [0m[1mOutput Shape          [0m[1m [0m┃[1m [0m[1m      Param #[0m[1m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ encoder_1 ([38;5;33mEncoder[0m)             │ ?                      │     [38;5;34m1,288,960[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ decoder_1 ([38;5;33mDecoder[0m)             │ ?                      │     [38;5;34m1,421,568[0m │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ output_projection ([38;5;33mDense[0m)       │ ([38;5;34m1[0m, [38;5;34m41[0m, [38;5;34m8000[0m)          │     [38;5;34m1,032,000[0m │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+
+
+Notebook cell 21
+[1m Total params: [0m[38;5;34m3,742,528[0m (14.28 MB)
+
+
+Notebook cell 21
+[1m Trainable params: [0m[38;5;34m3,742,528[0m (14.28 MB)
+
+
+Notebook cell 21
+[1m Non-trainable params: [0m[38;5;34m0[0m (0.00 B)
+
+
+Notebook cell 22
+Full model training (10k samples, 30 epochs — GPU recommended)
+
+  [Full] Epoch 1/30  loss: 8.5155
+  [Full] Epoch 2/30  loss: 7.4526
+  [Full] Epoch 3/30  loss: 6.7073
+  [Full] Epoch 4/30  loss: 6.2977
+  [Full] Epoch 5/30  loss: 6.1204
+  [Full] Epoch 6/30  loss: 6.0151
+  [Full] Epoch 7/30  loss: 5.8965
+  [Full] Epoch 8/30  loss: 5.7505
+  [Full] Epoch 9/30  loss: 5.5804
+  [Full] Epoch 10/30  loss: 5.3967
+  [Full] Epoch 11/30  loss: 5.2132
+  [Full] Epoch 12/30  loss: 5.0349
+  [Full] Epoch 13/30  loss: 4.8671
+  [Full] Epoch 14/30  loss: 4.7061
+  [Full] Epoch 15/30  loss: 4.5538
+  [Full] Epoch 16/30  loss: 4.4025
+  [Full] Epoch 17/30  loss: 4.2607
+  [Full] Epoch 18/30  loss: 4.1127
+  [Full] Epoch 19/30  loss: 3.9686
+  [Full] Epoch 20/30  loss: 3.8200
+  [Full] Epoch 21/30  loss: 3.6763
+  [Full] Epoch 22/30  loss: 3.5194
+  [Full] Epoch 23/30  loss: 3.3728
+  [Full] Epoch 24/30  loss: 3.2177
+  [Full] Epoch 25/30  loss: 3.0701
+  [Full] Epoch 26/30  loss: 2.9190
+  [Full] Epoch 27/30  loss: 2.7672
+  [Full] Epoch 28/30  loss: 2.6218
+  [Full] Epoch 29/30  loss: 2.4774
+  [Full] Epoch 30/30  loss: 2.3346
+
+
+Notebook cell 22
+<Figure size 1000x600 with 1 Axes>
+
+Notebook cell 22
+Final loss: 2.3346
+
+
+Notebook cell 25
+Translator ready.
+
+
+Notebook cell 28
+============================================================
+PT: este é o meu primeiro dia.
+EN: this is my day i was what is my day is my day i was living in my day i was too much is my time is my time is my time in my life is my day is my
+------------------------------------------------------------
+PT: a tecnologia está mudando o mundo.
+EN: the world has been stuck on the world and he basically said and now who are and she knew of the world and thats just its all the world or the time in the or or
+------------------------------------------------------------
+PT: obrigado pela sua atenção.
+EN: applause thank you to you about how we are often the way through its not its its all right now its not the way its its three or the way through how to the practice is to go out
+------------------------------------------------------------
+PT: o problema é muito difícil.
+EN: the is it is to be here its not its about how we all its way its its that is its that is its that is its really is that is what is that is that is is is it
+------------------------------------------------------------

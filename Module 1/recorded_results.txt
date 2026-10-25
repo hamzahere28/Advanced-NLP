@@ -1,0 +1,152 @@
+Notebook cell 4
+Attention Weight Matrix (each row sums to 1.0):
+                 Key: The     Key: cat  Key: sleeps
+Query: The          0.3929       0.1682       0.4390
+Query: cat          0.2309       0.2834       0.4857
+Query: sleeps       0.2255       0.5587       0.2158
+
+Row sums (should all be 1.0): [1. 1. 1.]
+Output shape: (3, 4)
+
+
+Notebook cell 8
+<Figure size 600x500 with 2 Axes>
+
+Notebook cell 8
+
+What does this tell us?
+  Highest attention: 'sleeps' attends most strongly to 'cat' (0.559)
+
+
+Notebook cell 11
+=== Full-Size Attention Classifier ===
+
+
+Notebook cell 11
+2026-10-25 07:41:10.126085: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+
+
+Notebook cell 11
+[1mModel: "Attention_Classifier"[0m
+
+
+Notebook cell 11
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃[1m [0m[1mLayer (type)       [0m[1m [0m┃[1m [0m[1mOutput Shape     [0m[1m [0m┃[1m [0m[1m   Param #[0m[1m [0m┃[1m [0m[1mConnected to     [0m[1m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ word_embeddings     │ ([38;5;45mNone[0m, [38;5;34m59[0m, [38;5;34m250[0m)   │          [38;5;34m0[0m │ -                 │
+│ ([38;5;33mInputLayer[0m)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ self_attention      │ ([38;5;45mNone[0m, [38;5;34m59[0m, [38;5;34m250[0m)   │    [38;5;34m251,000[0m │ word_embeddings[[38;5;34m…[0m │
+│ ([38;5;33mMultiHeadAttentio…[0m │                   │            │ word_embeddings[[38;5;34m…[0m │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequence_avg        │ ([38;5;45mNone[0m, [38;5;34m250[0m)       │          [38;5;34m0[0m │ self_attention[[38;5;34m0[0m… │
+│ ([38;5;33mGlobalAveragePool…[0m │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sentiment_output    │ ([38;5;45mNone[0m, [38;5;34m1[0m)         │        [38;5;34m251[0m │ sequence_avg[[38;5;34m0[0m][[38;5;34m…[0m │
+│ ([38;5;33mDense[0m)             │                   │            │                   │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+
+
+Notebook cell 11
+[1m Total params: [0m[38;5;34m251,251[0m (981.45 KB)
+
+
+Notebook cell 11
+[1m Trainable params: [0m[38;5;34m251,251[0m (981.45 KB)
+
+
+Notebook cell 11
+[1m Non-trainable params: [0m[38;5;34m0[0m (0.00 B)
+
+
+Notebook cell 14
+/usr/local/lib/python3.13/dist-packages/tensorflow_hub/__init__.py:61: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+
+
+Notebook cell 14
+Positive file: /kaggle/input/datasets/arhamsheikhdev/polarity/rt-polarity.pos
+Negative file: /kaggle/input/datasets/arhamsheikhdev/polarity/rt-polarity.neg
+
+Total samples: 10662
+Positive samples: 5331
+Negative samples: 5331
+
+Loading local embedding model: /kaggle/input/models/google/wiki-words/tensorflow2/250/1
+
+Max sequence length: 59
+Tiny X shape: (200, 59, 250)
+Tiny Y shape: (200,)
+
+Preprocessing completed successfully.
+
+
+Notebook cell 17
+Model function defined successfully.
+
+
+Notebook cell 18
+=== Tiny Illustration Model ===
+
+
+Notebook cell 18
+[1mModel: "Attention_Classifier"[0m
+
+
+Notebook cell 18
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃[1m [0m[1mLayer (type)       [0m[1m [0m┃[1m [0m[1mOutput Shape     [0m[1m [0m┃[1m [0m[1m   Param #[0m[1m [0m┃[1m [0m[1mConnected to     [0m[1m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ word_embeddings     │ ([38;5;45mNone[0m, [38;5;34m59[0m, [38;5;34m250[0m)   │          [38;5;34m0[0m │ -                 │
+│ ([38;5;33mInputLayer[0m)        │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ input_projection    │ ([38;5;45mNone[0m, [38;5;34m59[0m, [38;5;34m16[0m)    │      [38;5;34m4,000[0m │ word_embeddings[[38;5;34m…[0m │
+│ ([38;5;33mDense[0m)             │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ self_attention      │ ([38;5;45mNone[0m, [38;5;34m59[0m, [38;5;34m16[0m)    │      [38;5;34m1,088[0m │ input_projection… │
+│ ([38;5;33mMultiHeadAttentio…[0m │                   │            │ input_projection… │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sequence_avg        │ ([38;5;45mNone[0m, [38;5;34m16[0m)        │          [38;5;34m0[0m │ self_attention[[38;5;34m0[0m… │
+│ ([38;5;33mGlobalAveragePool…[0m │                   │            │                   │
+├─────────────────────┼───────────────────┼────────────┼───────────────────┤
+│ sentiment_output    │ ([38;5;45mNone[0m, [38;5;34m1[0m)         │         [38;5;34m17[0m │ sequence_avg[[38;5;34m0[0m][[38;5;34m…[0m │
+│ ([38;5;33mDense[0m)             │                   │            │                   │
+└─────────────────────┴───────────────────┴────────────┴───────────────────┘
+
+
+Notebook cell 18
+[1m Total params: [0m[38;5;34m5,105[0m (19.94 KB)
+
+
+Notebook cell 18
+[1m Trainable params: [0m[38;5;34m5,105[0m (19.94 KB)
+
+
+Notebook cell 18
+[1m Non-trainable params: [0m[38;5;34m0[0m (0.00 B)
+
+
+Notebook cell 18
+
+Starting tiny training run (200 samples, 5 epochs)...
+Epoch 1/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 44ms/step - accuracy: 0.5188 - loss: 0.6925 - val_accuracy: 0.5750 - val_loss: 0.6906
+Epoch 2/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 18ms/step - accuracy: 0.5312 - loss: 0.6912 - val_accuracy: 0.5750 - val_loss: 0.6885
+Epoch 3/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 18ms/step - accuracy: 0.5312 - loss: 0.6906 - val_accuracy: 0.5750 - val_loss: 0.6859
+Epoch 4/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 18ms/step - accuracy: 0.5312 - loss: 0.6896 - val_accuracy: 0.5750 - val_loss: 0.6840
+Epoch 5/5
+[1m10/10[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 18ms/step - accuracy: 0.5312 - loss: 0.6881 - val_accuracy: 0.5750 - val_loss: 0.6836
+
+
+Notebook cell 20
+<Figure size 1400x500 with 2 Axes>
+
+Notebook cell 20
+
+Key observation: the training loss decreased — self-attention trains successfully!
+Final training loss:   0.6881
+Final training accuracy: 0.5312
